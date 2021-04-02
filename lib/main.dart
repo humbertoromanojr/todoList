@@ -20,6 +20,9 @@ class _HomeState extends State<Home> {
 
   List _todoList = [];
 
+  Map<String, dynamic> _lastRemoved;
+  int _lastRemovedPos;
+
   @override
   void initState() {
     super.initState();
@@ -81,9 +84,9 @@ class _HomeState extends State<Home> {
         ));
   }
 
-  Widget buildItem(context, index) {
+  Widget buildItem(BuildContext context, int index) {
     return Dismissible(
-        key: key(DateTime.now().microsecondsSinceEpoch.toString()),
+        key: Key(DateTime.now().microsecondsSinceEpoch.toString()),
         background: Container(
           color: Colors.red,
           child: Align(
@@ -104,7 +107,33 @@ class _HomeState extends State<Home> {
               _saveData();
             });
           },
-        ));
+        ),
+      onDismissed: (direction){
+          setState(() {
+            _lastRemoved = Map.from(_todoList[index]);
+
+            _lastRemovedPos = index;
+            _todoList.removeAt(index);
+
+            _saveData();
+
+            final snack = SnackBar(
+              content: Text("Task \"${_lastRemoved["title"]}\" deleted!"),
+              action: SnackBarAction(label: "Undo",
+                  onPressed: (){
+                    setState(() {
+                      _todoList.insert(_lastRemovedPos, _lastRemoved);
+                      _saveData();
+                    });
+                  }
+              ),
+              duration: Duration(seconds: 4),
+            );
+
+            Scaffold.of(context).showSnackBar(snack);
+          });
+      },
+    );
   }
 
   Future<File> _getFile() async {
