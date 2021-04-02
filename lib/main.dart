@@ -70,7 +70,12 @@ class _HomeState extends State<Home> {
                       secondary: CircleAvatar(
                           child: Icon(_todoList[index]["ok"]
                               ? Icons.check
-                              : Icons.error)),
+                              : Icons.error),),
+                      onChanged: (c){
+                        setState(() {
+                          _todoList[index]["ok"] = c;
+                        });
+                      },
                     );
                   }),
             )
