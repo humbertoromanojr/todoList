@@ -25,6 +25,23 @@ Para rodar a aplicação
   <img src="https://i.ibb.co/4NzkfGP/todo-List-Flutter.png" alt="todo-List-Flutter" border="0" alt="imagem de uma linda ilha no oceano e com dois dispositivos demostrando uma lista de tarefas.">
 <br>
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) page for details.
+
+## Author
+
+<img src="https://avatars1.githubusercontent.com/u/6500430?s=460&u=42d7e22fa1c77b061505fe1cfc3fcaa3e2a4d1e5&v=4" width="80" alt="linkedin.com/in/junior-dev">
+:guitar: JR Dev :guitar:
+<br />
+
+LinkedIn: https://www.linkedin.com/in/junior-dev <br />
+GitLab: https://gitlab.com/hjrdev <br />
+Email: astronomi@gmail.com <br />
+<br />
+
+Made with :heart: and lots of animation by :guitar: JR Dev :guitar:
+
 ## Getting Started
 
 A new Flutter application.
